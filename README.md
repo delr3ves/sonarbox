@@ -42,5 +42,3 @@ Once you have your configuration file, analyzing the source should be as simple 
     $ export PROJECT_TO_ANALIZE=/path/to/your/source/code
     $ export SONAR_PROJECT_PROPERITES=/path/to/your/project/properies/file
     $ docker-compose up scanner
-
-![How to analyze the project](art/run-scanner.gif)
