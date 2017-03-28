@@ -1,13 +1,13 @@
 version: '2'
 services:
-  runner:
+  scanner:
     build: .
     links:
       - sonar
     volumes:
       - $PROJECT_TO_ANALIZE:/code
       - $SONAR_PROJECT_PROPERITES:/code/sonar-project.properties
-    command: sonar-runner
+    command: sonar-scanner
   sonar:
     image: sonarqube
     ports:
