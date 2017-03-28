@@ -1,0 +1,34 @@
+version: '2'
+services:
+  runner:
+    build: .
+    links:
+      - sonar
+    volumes:
+      - $PROJECT_TO_ANALIZE:/code
+      - $SONAR_PROJECT_PROPERITES:/code/sonar-project.properties
+    command: sonar-runner
+  sonar:
+    image: sonarqube
+    ports:
+      - 9000:9000
+      - 9092:9092
+    environment:
+      SONARQUBE_JDBC_URL: jdbc:mysql://db:3306/sonar?useUnicode=true&amp;characterEncoding=utf8
+    links:
+      - db
+    volumes:
+      - ./sonar-extensions:/opt/sonarqube/extensions
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: sonar
+      MYSQL_DATABASE: sonar
+      MYSQL_USER: sonar
+      MYSQL_PASSWORD: sonar
+    volumes:
+      - sonarbox_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+volumes:
+  sonarbox_data:
