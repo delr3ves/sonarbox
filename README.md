@@ -6,7 +6,7 @@ Provides a docker infrastructure to execute Sonar without changing any configura
 SonarBox is only a docker infrastructure to analyze our projects in a non-invasive and effortless way. It provides the SonarQube server, a persistent Database for our analysis and a scanner to perform the analysis.
 
 ## Prerequisites
-The only thing you need to perform the analysis is [docker]https://www.docker.com) and [docker-compose](https://docs.docker.com/compose/)
+The only thing you need to perform the analysis is [docker](https://www.docker.com) and [docker-compose](https://docs.docker.com/compose/)
 
 ## Configuration
 Until I upload the scanner to docker registry, you'll need to build the scanner image the first time you run the project. Doing it, is as simple as Running
